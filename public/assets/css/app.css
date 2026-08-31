@@ -1,0 +1,142 @@
+:root {
+  --primary-color: #49b5a9;
+  --hour-height: 110px;
+  --hour-count: 10;
+  --slot-count: 20;
+  --time-width: 185px;
+  --day-width: 304px;
+  --border-width: 2px;
+  --border: var(--border-width) solid #d2d2d2;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 24px;
+  line-height: 100%;
+  color: #000000;
+  background: #e5e5e5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.page {
+  background: #fff;
+  width: 1440px;
+  height: 1473px;
+}
+
+.message {
+  padding: 40px;
+  text-align: center;
+}
+
+.message--error {
+  color: #b91c1c;
+}
+
+.message--error p {
+  margin-top: 0;
+}
+
+button {
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 2px;
+  background: var(--primary-color);
+  color: #fff;
+  cursor: pointer;
+}
+
+.calendar {
+  position: absolute;
+  top: 148px;
+  left: 171px;
+  width: 1097px;
+  height: 1172px;
+}
+
+.calendar-header,
+.calendar-body {
+  display: grid;
+  grid-template-columns: var(--time-width);
+  grid-auto-columns: var(--day-width);
+  grid-auto-flow: column;
+}
+
+.calendar-header {
+  height: 72px;
+}
+
+.calendar-header > div {
+  border-top: var(--border);
+  border-right: var(--border);
+  border-bottom: var(--border);
+}
+
+.calendar-header > div:first-child {
+  border-left: var(--border);
+}
+
+.day-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-column,
+.day-column {
+  height: calc(var(--hour-height) * var(--hour-count));
+  border-right: var(--border);
+  border-bottom: var(--border);
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(var(--hour-height) - var(--border-width)),
+    #d2d2d2 calc(var(--hour-height) - var(--border-width)),
+    #d2d2d2 var(--hour-height)
+  );
+}
+
+.time-column {
+  display: grid;
+  grid-template-rows: repeat(var(--hour-count), var(--hour-height));
+  border-left: var(--border);
+}
+
+.time-label {
+  width: 100%;
+  transform: translateY(8px);
+  text-align: center;
+}
+
+.day-column {
+  display: grid;
+  grid-template-rows: repeat(
+    var(--slot-count),
+    calc(var(--hour-height) / 2)
+  );
+}
+
+.meeting-slot {
+  position: relative;
+}
+
+.meeting {
+  position: absolute;
+  left: 0;
+  width: 301px;
+  height: 108px;
+  overflow: hidden;
+  padding: 14px 11px;
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.meeting-label {
+  display: block;
+  line-height: 150%;
+  margin: 5px;
+}
