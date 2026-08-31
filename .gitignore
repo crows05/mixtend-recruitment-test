@@ -1,0 +1,6 @@
+/logs/*.log
+!/logs/.gitkeep
+/.idea/
+/.vscode/
+/php.ini
+.DS_Store

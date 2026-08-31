@@ -1,0 +1,13 @@
+{
+  "name": "coding-test/schedule-calendar",
+  "description": "Mixtend engineer recruitment coding test",
+  "type": "project",
+  "require": {
+    "php": ">=7.3",
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "scripts": {
+    "test": "php tests/run.php"
+  }
+}
